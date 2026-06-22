@@ -1,0 +1,16 @@
+{
+  "name": "Edison KNV",
+  "short_name": "Edison KNV",
+  "start_url": "/Edison/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007AFF", 
+  "orientation": "portrait",
+  "icons": [
+    { "src": "Edisonchester.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "Edisonkaen.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "Edisonkvn.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "Edisonnox.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "Edisonvictor.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
