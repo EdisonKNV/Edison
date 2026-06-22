@@ -1,52 +1,71 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edison KNV</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#ffffff">
-    
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body { margin: 0; padding: 0; font-family: sans-serif; background: #1a1a1a; color: white; }
+
+        /* Dolny pasek */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background: #2d2d2d;
             display: flex;
-            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #444;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: #ccc;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Przycisk zarządzania w kole */
+        .management-container {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+
+        .management-btn {
+            width: 80px;
+            height: 80px;
+            background: #007bff;
+            border-radius: 50%;
+            border: 4px solid #1a1a1a;
+            color: white;
+            font-weight: bold;
+            display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
-            transition: background-color 0.3s ease;
-        }
-        .controls {
-            display: grid;
-            gap: 10px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-        }
-        button {
-            padding: 15px 30px;
-            font-size: 16px;
             cursor: pointer;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
 
-    <h1>Edison KNV</h1>
-    
-    <div class="controls">
-        <button onclick="changeTheme('chester')" style="background-color: #87CEEB;">Chester</button>
-        <button onclick="changeTheme('kaen')" style="background-color: #2E8B57; color: white;">Kaen</button>
-        <button onclick="changeTheme('kvn')" style="background-color: #DC143C; color: white;">KVN</button>
-        <button onclick="changeTheme('nox')" style="background-color: #191970; color: white;">Nox</button>
-        <button onclick="changeTheme('victor')" style="background-color: #FFD700;">Victor</button>
+    <!-- Główny przycisk w kole -->
+    <div class="management-container">
+        <button class="management-btn">Zarządzanie</button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Pasek dolny -->
+    <nav class="bottom-nav">
+        <button class="nav-btn">Czat</button>
+        <button class="nav-btn">Akcje</button>
+        <div style="width: 80px;"></div> <!-- Puste miejsce na przycisk w kole -->
+        <button class="nav-btn">Mapa</button>
+        <button class="nav-btn">Ustawienia</button>
+    </nav>
+
 </body>
 </html>
