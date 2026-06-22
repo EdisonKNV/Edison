@@ -1,3 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-  <h1>Siemka</h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edison KNV</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s ease;
+        }
+        .controls {
+            display: grid;
+            gap: 10px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+    </style>
 </head>
+<body>
+
+    <h1>Edison KNV</h1>
+    
+    <div class="controls">
+        <button onclick="changeTheme('chester')" style="background-color: #87CEEB;">Chester</button>
+        <button onclick="changeTheme('kaen')" style="background-color: #2E8B57; color: white;">Kaen</button>
+        <button onclick="changeTheme('kvn')" style="background-color: #DC143C; color: white;">KVN</button>
+        <button onclick="changeTheme('nox')" style="background-color: #191970; color: white;">Nox</button>
+        <button onclick="changeTheme('victor')" style="background-color: #FFD700;">Victor</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
