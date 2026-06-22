@@ -7,10 +7,6 @@
   "theme_color": "#007AFF", 
   "orientation": "portrait",
   "icons": [
-    { "src": "Edisonchester.png", "sizes": "483x517", "type": "image/png" },
-    { "src": "Edisonkaen.png", "sizes": "1115x1096", "type": "image/png" },
-    { "src": "Edisonkvn.png", "sizes": "1024x1024", "type": "image/png" },
-    { "src": "Edisonnox.png", "sizes": "1024x1024", "type": "image/png" },
-    { "src": "Edisonvictor.png", "sizes": "848x906", "type": "image/png" }
+    { "src": "Edisonkaen.png", "sizes": "1115x1096", "type": "image/png" }
   ]
 }
