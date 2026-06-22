@@ -1,35 +1,40 @@
 const themes = {
-    chester: { color: "#87CEEB", icon: "Edisonchester.png" }, // Jasny niebieski
-    kaen: { color: "#2E8B57", icon: "Edisonkaen.png" },       // Zielony
-    kvn: { color: "#DC143C", icon: "Edisonkvn.png" },         // Czerwony
-    nox: { color: "#191970", icon: "Edisonnox.png" },         // Ciemny niebieski
-    victor: { color: "#FFD700", icon: "Edisonvictor.png" }    // Żółty
+    chester: { color: "#87CEEB", icon: "Edisonchester.png" },
+    kaen: { color: "#2E8B57", icon: "Edisonkaen.png" },
+    kvn: { color: "#DC143C", icon: "Edisonkvn.png" },
+    nox: { color: "#191970", icon: "Edisonnox.png" },
+    victor: { color: "#FFD700", icon: "Edisonvictor.png" }
 };
 
 function changeTheme(themeName) {
     const theme = themes[themeName];
     if (!theme) return;
 
-    // 1. Zmiana koloru paska przeglądarki (Android)
+    // Zmiana koloru paska przeglądarki
     let metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    if (!metaThemeColor) {
-        metaThemeColor = document.createElement('meta');
-        metaThemeColor.setAttribute('name', 'theme-color');
-        document.head.appendChild(metaThemeColor);
-    }
     metaThemeColor.setAttribute('content', theme.color);
 
-    // 2. Zmiana stylu strony (np. przez klasę CSS na body)
+    // Zmiana tła
     document.body.style.backgroundColor = theme.color;
     
-    // 3. Opcjonalnie: podmiana favicony w locie
-    let link = document.querySelector("link[rel*='icon']");
-    link.href = theme.icon;
+    // Prawidłowa podmiana ikony (usuwanie starej, tworzenie nowej)
+    let oldIcon = document.querySelector("link[rel~='icon']");
+    if (oldIcon) document.head.removeChild(oldIcon);
+    
+    let newIcon = document.createElement('link');
+    newIcon.rel = 'icon';
+    newIcon.href = theme.icon;
+    document.head.appendChild(newIcon);
 
-    console.log(`Motyw zmieniony na: ${themeName}`);
+    console.log(`Motyw: ${themeName}`);
 }
 
-// Przykład podpięcia przycisków w HTML:
-// <button onclick="changeTheme('chester')">Chester</button>
-// <button onclick="changeTheme('kaen')">Kaen</button>
-// ... itd.
+// Funkcja losująca
+function setRandomTheme() {
+    const keys = Object.keys(themes);
+    const randomKey = keys[Math.floor(Math.random() * keys.length)];
+    changeTheme(randomKey);
+}
+
+// Uruchom losowanie przy starcie strony
+document.addEventListener('DOMContentLoaded', setRandomTheme);
